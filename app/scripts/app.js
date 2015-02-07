@@ -25,9 +25,9 @@ angular
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
-            .when('/about', {
-                templateUrl: 'views/about.html',
-                controller: 'AboutCtrl'
+            .when('/reservation', {
+                templateUrl: 'views/reservation.html',
+                controller: 'ReservationCtrl'
             })
             .when('/login', {
                 templateUrl: 'views/login.html',

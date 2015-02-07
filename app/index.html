@@ -28,6 +28,8 @@
 </head>
 
 <body ng-app="adminHotelReservationApp">
+
+</div>
     <section id="container">
         <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -46,7 +48,7 @@
                     <!-- settings start -->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                            <i class="fa fa-tasks"></i>
+                            <i class="glyphicon glyphicon-globe"></i>
                             <span class="badge bg-theme">{{books.length}}</span>
                         </a>
                         <ul class="dropdown-menu extended tasks-bar">
@@ -62,7 +64,7 @@
                                 </a>
                             </li>
                             <li class="external">
-                                <a href="#/about">See All Bookings</a>
+                                <a href="#/reservation">See All Bookings</a>
                             </li>
                         </ul>
                     </li>
@@ -102,7 +104,7 @@
 
 
                     <li class="mt">
-                        <a class="" href="#/about">
+                        <a class="" href="#/reservation">
                             <i class="glyphicon glyphicon-th-list"></i>
                             <span>Reservations</span>
                         </a>
@@ -179,7 +181,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/reservation.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <!-- endbuild -->
 

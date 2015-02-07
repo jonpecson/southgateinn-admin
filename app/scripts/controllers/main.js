@@ -22,16 +22,15 @@ angular.module('adminHotelReservationApp')
         $scope.bookingScheds = []
 
         angular.element(document).ready(function() {
-
             bookingsArray.$loaded().then(function(bookings) {
-                $rootScope.books = bookings;
+                var books = $filter('filter')(bookings, 'Approved');
 
-                for (var i = 0; i < bookings.length; i++) {
+                for (var i = 0; i < books.length; i++) {
                     $scope.bookingScheds.push({
                         id: 9,
-                        title: bookings[i].roomtype + '( ' + bookings[i].firstname + ' ' + bookings[i].lastname + ' )',
-                        start: new Date(Date.parse(bookings[i].arrival)),
-                        end: new Date(Date.parse(bookings[i].departure)),
+                        title: books[i].roomtype + '( ' + books[i].firstname + ' ' + books[i].lastname + ' )',
+                        start: new Date(Date.parse(books[i].arrival)),
+                        end: new Date(Date.parse(books[i].departure)),
                         allDay: true
                     })
                 }

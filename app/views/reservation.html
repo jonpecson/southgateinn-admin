@@ -37,7 +37,7 @@
                         </thead>
 
                         <tbody>
-                            <tr ng-repeat="b in bookings">
+                            <tr ng-repeat="b in bookings|orderBy:'-arrival'">
                                 <td><span ng-class="{
                                 'label label-warning': b.status === 'Pending',
                                 'label label-success': b.status === 'Approved',

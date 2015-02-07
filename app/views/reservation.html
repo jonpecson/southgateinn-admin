@@ -1,0 +1,79 @@
+<section class="wrapper">
+    <br>
+    <div class="well">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">List of Reservations</h4>
+            </div>
+            <div class="col-md-12">
+                    <button type="button" class="btn btn-primary btn-md pull-right RbtnMargin">New</button>
+                    <button type="button" class="btn btn-primary btn-md pull-right">New</button>
+
+
+
+
+            </div>
+
+            <div class="col-md-12">
+
+
+                <div class="table-responsive">
+
+
+                    <table id="mytable" class="table table-bordred table-striped">
+                        <thead>
+                            <th>Status</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Arrival</th>
+                            <th>Departure</th>
+                            <th>Adults</th>
+                            <th>Children</th>
+                            <th>Room</th>
+                            <th>Rate</th>
+                            <th>Approve</th>
+                            <th>Cancel</th>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="b in bookings">
+                                <td><span ng-class="{
+                                'label label-warning': b.status === 'Pending',
+                                'label label-success': b.status === 'Approved',
+                                'label label-danger': b.status === 'Cancelled'
+                            }">{{b.status}}</span>
+                                </td>
+                                <td>{{b.firstname}} {{b.lastname}}</td>
+                                <td>{{b.mobile}}</td>
+                                <td>{{b.email}}</td>
+                                <td>{{b.arrival}}</td>
+                                <td>{{b.departure}}</td>
+                                <td>{{b.adult}}</td>
+                                <td>{{b.children}}</td>
+                                <td>{{b.roomtype}}</td>
+                                <td>{{b.rate}}</td>
+                                <td>
+                                    <p data-placement="top" data-toggle="tooltip" title="Approve">
+                                        <button class="btn btn-success btn-xs" data-title="Approve" data-toggle="modal" data-target="#edit" ng-click="changeStatus(b,'Approved')"><span class="glyphicon glyphicon-ok"></span>
+                                        </button>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p data-placement="top" data-toggle="tooltip" title="Delete">
+                                        <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ng-click="changeStatus(b,'Cancelled')"><span class="glyphicon glyphicon-remove"></span>
+                                        </button>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!--/wrapper -->

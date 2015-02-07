@@ -30,13 +30,13 @@
 
 <body ng-app="adminHotelReservationApp" ng-controller="MainCtrl">
 
-</div>
+    </div>
     <section id="container">
         <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
         <!--header start-->
-        <header class="header black-bg">
+        <header class="header black-bg hidden-print">
             <div class="sidebar-toggle-box">
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
@@ -90,7 +90,7 @@
       *********************************************************************************************************************************************************** -->
         <!--sidebar start-->
         <aside>
-            <div id="sidebar" class="nav-collapse ">
+            <div id="sidebar" class="nav-collapse hidden-print">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
 
@@ -121,8 +121,8 @@
 
                     <li class="mt">
                         <a class="" href="#/messages">
-                            <i class="glyphicon glyphicon-envelope"></i>
-                            <span>Messages</span>
+                            <i class="fa fa-file-text"></i>
+                            <span>Reports</span>
                         </a>
                     </li>
 
@@ -132,23 +132,23 @@
             </div>
         </aside>
         <!--sidebar end-->
-
-        <!-- <div class="container">
+    </section>
+    <!-- <div class="container">
     <div ng-view=""></div>
     </div> -->
 
-        <section id="main-content">
-            <div ng-view=""></div>
-        </section>
+    <section id="main-content">
+        <div ng-view=""></div>
+    </section>
 
-        <!-- <div class="footer">
+    <!-- <div class="footer">
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
     </div> -->
 
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
         <script>
         ! function(A, n, g, u, l, a, r) {
             A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
@@ -161,70 +161,71 @@
         ga('send', 'pageview');
         </script> -->
 
-        <!-- build:js(.) scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-touch/angular-touch.js"></script>
-        <script src="bower_components/firebase/firebase.js"></script>
-        <script src="bower_components/angularfire/dist/angularfire.js"></script>
-        <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
-        <script src="bower_components/fullcalendar/fullcalendar.js"></script>
-        <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+    <script src="bower_components/fullcalendar/fullcalendar.js"></script>
+    <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/reservation.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/reservation.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/rooms.js"></script>
+    <!-- endbuild -->
 
-        <!-- Modal -->
-        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" my-modal>
-            <div class="modal-dialog" >
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Welcome to South Gate Inn</h4>
-                    </div>
-                    <div class="modal-body">
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" my-modal>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Welcome to South Gate Inn</h4>
+                </div>
+                <div class="modal-body">
 
-                      <div class="alert alert-danger" role="alert" ng-show="error">Authentication failed : {{error.message}}</div>
+                    <div class="alert alert-danger" role="alert" ng-show="error">Authentication failed : {{error.message}}</div>
 
-                        <p>Enter your username and password below to login.</p>
-                        <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" ng-model="user.email">
-                        <br>
-                        <input type="password" name="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix" ng-model="user.password">
+                    <p>Enter your username and password below to login.</p>
+                    <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" ng-model="user.email">
+                    <br>
+                    <input type="password" name="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix" ng-model="user.password">
 
-                    </div>
-                    <div class="modal-footer">
-                        <!-- <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button> -->
-                        <button  class="btn btn-theme" type="button" ng-click="login()">Login</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button> -->
+                    <button class="btn btn-theme" type="button" ng-click="login()">Login</button>
                 </div>
             </div>
         </div>
-        <!-- modal -->
+    </div>
+    <!-- modal -->
 
- <!--       <script type="text/javascript">
+    <!--       <script type="text/javascript">
         $(window).load(function() {
             $('#myModal').modal('show');
         });
         </script>
 -->
-<script type="text/javascript">
-    $(function () {
+    <script type="text/javascript">
+    $(function() {
         $("[rel='tooltip']").tooltip();
     });
-</script>
+    </script>
 
 
 </body>

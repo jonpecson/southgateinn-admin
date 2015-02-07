@@ -8,7 +8,7 @@
  * Controller of the adminHotelReservationApp
  */
 angular.module('adminHotelReservationApp')
-  .controller('ReservationCtrl', function ($scope, $firebase, Firebase) {
+  .controller('ReservationCtrl', function ($scope, $firebase, Firebase, $window) {
     var URL = "https://south-gate-inn.firebaseio.com/bookings/";
         var ref = new Firebase(URL);
         // create an AngularFire reference to the data
@@ -24,5 +24,10 @@ angular.module('adminHotelReservationApp')
             // var booking = $scope.bookings.$getRecord(key)
             b.status = status;
             $scope.bookings.$save(b);
+        }
+
+        $scope.printPage = function() {
+            $window.print();
+            console.log('Printing');
         }
   });

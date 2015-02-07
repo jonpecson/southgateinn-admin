@@ -86,11 +86,11 @@ a, a:hover, a:focus {
 }
 
 .bg-theme04 {
-  background-color: #ed5565;
+  background-color: #EB7A77;
 }
 /*Theme Buttons*/
 
-.btn-theme {
+.EB7A77 {
   color: #fff;
   background-color: #EB7A77;
   border-color: #48bcb4;
@@ -137,8 +137,8 @@ a, a:hover, a:focus {
 
 .btn-theme04 {
   color: #fff;
-  background-color: #ed5565;
-  border-color: #da4453;
+  background-color: #EB7A77;
+  border-color: #EC8B88;
 }
 .btn-theme04:hover,
 .btn-theme04:focus,
@@ -146,8 +146,8 @@ a, a:hover, a:focus {
 .btn-theme04.active,
 .open .dropdown-toggle.btn-theme04 {
   color: #fff;
-  background-color: #da4453;
-  border-color: #da4453;
+  background-color: #EC8B88;
+  border-color: #EC8B88;
 }
 
 .btn-clear-g {
@@ -1305,7 +1305,7 @@ PANELS CONFIGURATIONS
 	left: 35px;
 }
 .badge-hot {
-	background: #ed5565;
+	background: #EB7A77;
 	width: 70px;
 	height: 70px;
 	line-height: 70px;
@@ -1764,7 +1764,7 @@ label {
 }
 
 #focusedInput {
-	border: 1px solid #ed5565;
+	border: 1px solid #EB7A77;
 	box-shadow: none;
 }
 

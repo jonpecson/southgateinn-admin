@@ -18,26 +18,33 @@ angular.module('adminHotelReservationApp')
         var sync = $firebase(FBRef);
         var bookingsArray = sync.$asArray();
 
-        // Used to store list of booking schedules
-        $scope.bookingScheds = []
+        $scope.$on('$viewContentLoaded', function() {
+            $scope.approvedBookings = [];
+            $scope.pendingBookings = [];
 
-        angular.element(document).ready(function() {
             bookingsArray.$loaded().then(function(bookings) {
-                var books = $filter('filter')(bookings, 'Approved');
+                var approved = $filter('filter')(bookings, 'Approved');
+                var pending = $filter('filter')(bookings, 'Pending');
 
-                for (var i = 0; i < books.length; i++) {
-                    $scope.bookingScheds.push({
+                for (var i = 0; i < approved.length; i++) {
+                    $scope.approvedBookings.push({
                         id: 9,
-                        title: books[i].roomtype + '( ' + books[i].firstname + ' ' + books[i].lastname + ' )',
-                        start: new Date(Date.parse(books[i].arrival)),
-                        end: new Date(Date.parse(books[i].departure)),
+                        title: approved[i].roomtype + ' (' + approved[i].firstname + ' ' + approved[i].lastname + ')',
+                        start: new Date(Date.parse(approved[i].arrival)),
+                        end: new Date(Date.parse(approved[i].departure)),
                         allDay: true
                     })
                 }
-                console.log($scope.bookingScheds);
+
+                for (var i = 0; i < pending.length; i++) {
+                    $scope.pendingBookings.push({
+                        title: pending[i].roomtype + ' (' + pending[i].firstname + ' ' + pending[i].lastname + ')',
+                        start: pending[i].arrival,
+                        end: pending[i].departure
+                    })
+                }
             });
         });
-
         $scope.login = function() {
             $scope.authObj.$authWithPassword({
                 email: $scope.user.email,
@@ -61,7 +68,7 @@ angular.module('adminHotelReservationApp')
         $scope.uiConfig = {
             calendar: {
                 height: 450,
-                editable: true,
+                editable: false,
                 header: {
                     left: 'title',
                     center: '',
@@ -70,7 +77,7 @@ angular.module('adminHotelReservationApp')
             }
         };
 
-        $scope.eventSources = [$scope.bookingScheds];
+        $scope.eventSources = [$scope.approvedBookings];
 
         // var getEnumName = function(key) {
         //     var result = $filter('filter')(Enum.SomeEnums, key);

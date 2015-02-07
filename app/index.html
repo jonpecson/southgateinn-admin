@@ -16,7 +16,8 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
 
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- <link href="font-awesome/css/font-awesome.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="lineicons/style.css">
@@ -27,7 +28,7 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="adminHotelReservationApp">
+<body ng-app="adminHotelReservationApp" ng-controller="MainCtrl">
 
 </div>
     <section id="container">
@@ -49,17 +50,18 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="glyphicon glyphicon-globe"></i>
-                            <span class="badge bg-theme">{{books.length}}</span>
+                            <span class="badge bg-theme" ng-init="init()">{{pendingBookings.length}}</span>
                         </a>
                         <ul class="dropdown-menu extended tasks-bar">
                             <div class="notify-arrow notify-arrow-green"></div>
                             <li>
-                                <p class="green">You have {{books.length}} pending reservations</p>
+                                <p class="green" ng-show="pendingBookings">You have {{pendingBookings.length}} pending reservations</p>
+                                <p class="green" ng-show="!pendingBookings">You have no pending reservations</p>
                             </li>
-                            <li ng-repeat="b in books">
-                                <a href="">
+                            <li ng-repeat="b in pendingBookings">
+                                <a href="#/reservation">
                                     <div class="task-info">
-                                        <div class="desc">{{b.firstname}} {{b.lastname}} ({{b.roomtype}})</div>
+                                        <div class="desc">{{b.title}}</div>
                                     </div>
                                 </a>
                             </li>
@@ -105,14 +107,14 @@
 
                     <li class="mt">
                         <a class="" href="#/reservation">
-                            <i class="glyphicon glyphicon-th-list"></i>
+                            <i class="glyphicon glyphicon-book"></i>
                             <span>Reservations</span>
                         </a>
                     </li>
 
                     <li class="mt">
                         <a class="" href="#/rooms">
-                            <i class="glyphicon glyphicon-home"></i>
+                            <i class="fa fa-bed"></i>
                             <span>Rooms</span>
                         </a>
                     </li>
@@ -187,7 +189,7 @@
 
         <!-- Modal -->
         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" my-modal>
-            <div class="modal-dialog" ng-controller="MainCtrl">
+            <div class="modal-dialog" >
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
